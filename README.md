@@ -1,24 +1,21 @@
-# README
+# Action Text PoC
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Rails 6 + PostgreSQL app dockerized built to test Action Text.
 
-Things you may want to cover:
+It has a Post scaffolded model with a content attribute as rich text. You can create a new Post through the route /posts/new to see the Trix editor running.
 
-* Ruby version
+You can attach files to the Trix editor and it will be processed by Active Storage locally. If you go to /posts/:id/ you can see the post's rich text content displayed.
 
-* System dependencies
+# Set up
 
-* Configuration
+Before running the app you need to set up the containers:
+```
+docker-compose up
+```
 
-* Database creation
+This should also build any container images you need. After that, you should open a new terminal window, attach to the web container and set up the database:
+```
+rails db:setup
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Then you should be good to go.
