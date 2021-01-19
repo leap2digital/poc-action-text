@@ -1,59 +1,24 @@
-# Template for Rails6 App with PostgreSQL using Docker
+# README
 
-Template project using Rails 6 with PostgreSQL + Docker
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-## Build the project
+Things you may want to cover:
 
-With those files in place, you can now generate the Rails skeleton app using docker-compose run:
+* Ruby version
 
-```
-docker-compose run --no-deps web rails new . --force --database=postgresql
-```
+* System dependencies
 
-Now that you’ve got a new Gemfile, you need to build the image again. (This, and changes to the Gemfile or the Dockerfile, should be the only times you’ll need to rebuild.)
+* Configuration
 
-```
-docker-compose build
-```
+* Database creation
 
-## Connect the database
+* Database initialization
 
-Replace the contents of config/database.yml with the following:
+* How to run the test suite
 
-```
-default: &default
-  adapter: postgresql
-  encoding: unicode
-  host: db
-  username: postgres
-  password: password
-  pool: 5
+* Services (job queues, cache servers, search engines, etc.)
 
-development:
-  <<: *default
-  database: myapp_development
+* Deployment instructions
 
-
-test:
-  <<: *default
-  database: myapp_test
-```
-
-You can now boot the app with docker-compose up:
-
-```
-docker-compose up
-```
-
-Finally, you need to create the database. In another terminal, run:
-
-```
-docker-compose run web rake db:create
-```
-
-## View the Rails welcome page!
-
-http://localhost:3000
-
-## More info:
-https://docs.docker.com/compose/rails/
+* ...
